@@ -45,7 +45,7 @@
 # IO.puts(Voter.eligibility(age))
 
 # Exercice sur les fonctions polymorphs et sur la condition case
-salaire = IO.gets("Quel est votre revenu mensuel") |> String.trim()
+salaire = IO.gets("Quel est votre revenu mensuel")
 
 defmodule Impotpercent do
   @moduledoc """
@@ -75,12 +75,12 @@ defmodule Impotpercent do
     "Entrée invalide"
   end
 
-  defp do_impotcalculate(salaire) when is_integer(salaire) do
+  defp do_impotcalculate(salaire) when is_binary(salaire) do
     do_impotcalculate(Integer.parse(salaire))
   end
 
   defp do_impotcalculate({salaire, _}) do
-    impotcalculate(salaire)
+    do_impotcalculate(salaire)
   end
 
   defp do_impotcalculate(salaire) when is_integer(salaire) and salaire < 10000 do
