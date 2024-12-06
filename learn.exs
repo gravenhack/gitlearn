@@ -45,65 +45,86 @@
 # IO.puts(Voter.eligibility(age))
 
 # Exercice sur les fonctions polymorphs et sur la condition case
-salaire = IO.gets("Quel est votre revenu mensuel")
+# salaire = IO.gets("Quel est votre revenu mensuel")
 
-defmodule Impotpercent do
-  @moduledoc """
-  Module pour calculer le pourcentage d'impôt basé sur le revenu mensuel.
-  """
-  @doc """
-  Calcule le pourcentage d'impôt en fonction du revenu donné.
+# defmodule Impotpercent do
+# @moduledoc """
+# Module pour calculer le pourcentage d'impôt basé sur le revenu mensuel.
+# """
+# @doc """
+# Calcule le pourcentage d'impôt en fonction du revenu donné.
+#
+# ## Arguments
+# - `salaire` : Revenu mensuel. Il peut être une chaîne de caractères (qui sera convertie en entier) ou un entier directement.
+#
+# ## Renvoie
+# - Un message indiquant le pourcentage d'impôt à payer ou une erreur si l'entrée est invalide.
+#
+# ## Exemples
+#     iex> Impotpercent.impotcalculate("20000")
+#     "votre impôt est de 10 pourcent"
+#
+#     iex> Impotpercent.impotcalculate(5000)
+#     "vous ne payez rien comme impôt"
+# """
+#   def impotcalculate(salaire) when is_binary(salaire) or is_integer(salaire) do
+#     do_impotcalculate(salaire)
+#   end
 
-  ## Arguments
-  - `salaire` : Revenu mensuel. Il peut être une chaîne de caractères (qui sera convertie en entier) ou un entier directement.
+#   def impotcalculate(_salaire) do
+#     "Entrée invalide"
+#   end
 
-  ## Renvoie
-  - Un message indiquant le pourcentage d'impôt à payer ou une erreur si l'entrée est invalide.
+#   defp do_impotcalculate(salaire) when is_binary(salaire) do
+#     do_impotcalculate(Integer.parse(salaire))
+#   end
 
-  ## Exemples
-      iex> Impotpercent.impotcalculate("20000")
-      "votre impôt est de 10 pourcent"
+#   defp do_impotcalculate({salaire, _}) do
+#     do_impotcalculate(salaire)
+#   end
 
-      iex> Impotpercent.impotcalculate(5000)
-      "vous ne payez rien comme impôt"
-  """
-  def impotcalculate(salaire) when is_binary(salaire) or is_integer(salaire) do
-    do_impotcalculate(salaire)
-  end
+#   defp do_impotcalculate(salaire) when is_integer(salaire) and salaire < 10000 do
+#     "vous ne payez rien comme impôt"
+#   end
 
-  def impotcalculate(_salaire) do
-    "Entrée invalide"
-  end
+#   defp do_impotcalculate(salaire)
+#        when is_integer(salaire) and salaire > 10000 and salaire < 30000 do
+#     "votre impôt est de 10 pourcent"
+#   end
 
-  defp do_impotcalculate(salaire) when is_binary(salaire) do
-    do_impotcalculate(Integer.parse(salaire))
-  end
+#   defp do_impotcalculate(salaire)
+#        when is_integer(salaire) and salaire > 30000 and salaire < 100_000 do
+#     "votre impôt est de 20 pourcent"
+#   end
 
-  defp do_impotcalculate({salaire, _}) do
-    do_impotcalculate(salaire)
-  end
+#   defp do_impotcalculate(salaire) when is_integer(salaire) and salaire > 100_000 do
+#     "votre impôt est de 30 pourcent"
+#   end
 
-  defp do_impotcalculate(salaire) when is_integer(salaire) and salaire < 10000 do
-    "vous ne payez rien comme impôt"
-  end
-
-  defp do_impotcalculate(salaire)
-       when is_integer(salaire) and salaire > 10000 and salaire < 30000 do
-    "votre impôt est de 10 pourcent"
-  end
-
-  defp do_impotcalculate(salaire)
-       when is_integer(salaire) and salaire > 30000 and salaire < 100_000 do
-    "votre impôt est de 20 pourcent"
-  end
-
-  defp do_impotcalculate(salaire) when is_integer(salaire) and salaire > 100_000 do
-    "votre impôt est de 30 pourcent"
-  end
-
-  defp do_impotcalculate(:error) do
-    "Entrée invalide"
-  end
-end
+#   defp do_impotcalculate(:error) do
+#     "Entrée invalide"
+#   end
+# end
 
 # IO.puts(Impotpercent.impotcalculate(salaire))
+
+# Fonctions anonymes
+# les fonctions anonyles sont des fonctions assoiés directemment à des variables et qu'on appelle avec la synthaxe
+# functionname.(param)
+# sum = fn a, b -> a + b end
+
+# IO.puts(sum.(12, 15))
+
+# additionner les élémznts d'une liste avec les fonctions anonymes
+# addition = fn [a, b, c, d, e, v] -> a + b + c + d + e + v end
+# IO.puts(addition.([12.01, 13, 21, 14, 11.05, 558]))
+
+# filtrer les nombres pairs   la fonction filter de enum renvoi uniquelents les valuers d'une liste dont la fontion renvoie une valeur vrai
+
+# liste = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# filter = fn list -> Enum.filter(list, fn x -> rem(x, 2) == 0 end) end
+
+# resultat = filter.(liste)
+
+# IO.inspect(resultat)
