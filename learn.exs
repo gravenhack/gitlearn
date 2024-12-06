@@ -151,3 +151,13 @@
 # secondresult = fn n -> print_fizzbuzz.(rem(n, 2), rem(n, 5), n) end
 
 # IO.inspect(secondresult.(11))
+
+# addlogo = fn
+#   :ok -> "ok.png"
+#   :oki -> "oki.png"
+#   :oka -> "oka.png"
+#   :err -> "err.png"
+#   _ -> "ok.png"
+#   end
+
+# IO.puts(addlogo.(:oka))
