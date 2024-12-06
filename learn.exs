@@ -138,16 +138,16 @@
 # IO.inspect(resultat)
 
 # les clauses de fonctions avec la notion de fonctions anonymes
-print_fizzbuzz = fn
-  0, 0, _ -> "FizzBuzz"
-  0, _, _ -> "Fizz"
-  _, 0, _ -> "Buzz"
-  _, _, n -> n
-end
+# print_fizzbuzz = fn
+#   0, 0, _ -> "FizzBuzz"
+#   0, _, _ -> "Fizz"
+#   _, 0, _ -> "Buzz"
+#   _, _, n -> n
+# end
 
-resultat = print_fizzbuzz.(4, 0, 2)
-IO.inspect(resultat)
+# resultat = print_fizzbuzz.(4, 0, 2)
+# IO.inspect(resultat)
 
-secondresult = fn n -> print_fizzbuzz.(rem(n, 2), rem(n, 5), n) end
+# secondresult = fn n -> print_fizzbuzz.(rem(n, 2), rem(n, 5), n) end
 
-IO.inspect(secondresult.(11))
+# IO.inspect(secondresult.(11))
