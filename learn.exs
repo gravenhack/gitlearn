@@ -121,10 +121,18 @@
 
 # filtrer les nombres pairs   la fonction filter de enum renvoi uniquelents les valuers d'une liste dont la fontion renvoie une valeur vrai
 
-# liste = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+liste = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # filter = fn list -> Enum.filter(list, fn x -> rem(x, 2) == 0 end) end
 
 # resultat = filter.(liste)
+
+# IO.inspect(resultat)
+
+# fontion pour la somme des éléments d'une liste
+
+# add = fn list -> Enum.reduce(list, 0, fn x, acc -> acc + x end) end
+
+# resultat = add.(liste)
 
 # IO.inspect(resultat)
