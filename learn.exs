@@ -121,7 +121,7 @@
 
 # filtrer les nombres pairs   la fonction filter de enum renvoi uniquelents les valuers d'une liste dont la fontion renvoie une valeur vrai
 
-liste = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# liste = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # filter = fn list -> Enum.filter(list, fn x -> rem(x, 2) == 0 end) end
 
@@ -136,3 +136,18 @@ liste = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 # resultat = add.(liste)
 
 # IO.inspect(resultat)
+
+# les clauses de fonctions avec la notion de fonctions anonymes
+print_fizzbuzz = fn
+  0, 0, _ -> "FizzBuzz"
+  0, _, _ -> "Fizz"
+  _, 0, _ -> "Buzz"
+  _, _, n -> n
+end
+
+resultat = print_fizzbuzz.(4, 0, 2)
+IO.inspect(resultat)
+
+secondresult = fn n -> print_fizzbuzz.(rem(n, 2), rem(n, 5), n) end
+
+IO.inspect(secondresult.(11))
