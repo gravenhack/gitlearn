@@ -151,7 +151,7 @@
 # secondresult = fn n -> print_fizzbuzz.(rem(n, 2), rem(n, 5), n) end
 
 # IO.inspect(secondresult.(11))
-
+# fonctions anonymes avec les clauses
 # addlogo = fn
 #   :ok -> "ok.png"
 #   :oki -> "oki.png"
@@ -161,3 +161,79 @@
 #   end
 
 # IO.puts(addlogo.(:oka))
+
+# Exercice sur les maps et le système de vote
+
+# map = %{}
+
+# count = Map.get(map, :will_ferell, 0) + 1
+
+# map = Map.put(map, :will_ferell, count)
+
+# IO.puts(count)
+
+# Exercice sur les notions déjà étudiées
+
+# tally = %{will_ferell: 0}
+
+# increment = fn amt ->
+#   fn x -> x + amt end
+# end
+
+# tally = Map.update(tally, :will_ferell, 0, increment.(5))
+
+# IO.inspect(tally)
+
+# nous écrirons une fonction d'ordre supérieur qui prendra un string et qui renverra un
+
+# add = fn x -> x + 1 end
+
+# defmodule Operation do
+#   def multiplication(x) do
+#     x + 1
+#   end
+# end
+
+# IO.inspect(Operation.multiplication(add.(0)))
+
+# defmodule Util do
+#   def compose(data, outer_fun, inner_fun) do
+#     outer_fun.(inner_fun.(data))
+#   end
+# end
+
+# paragraph = """
+# Auxétats-unis le jour de l'élection est un jours mémorable
+# """
+
+# word_count = Util.compose(paragraph, &length/1, &String.split/1)
+
+# IO.puts(word_count)
+# fonction logo
+defmodule Party do
+  @mascots %{
+    democratic: "donkey",
+    republican: "elephant",
+    libertarian: "statue",
+    green: "plant",
+    constitution: "eagle",
+    whig: "owl"
+  }
+
+  def mascot(party) do
+    @mascots[party]
+  end
+
+  def logo(party, size)
+      when party in [:democratic, :republic, :libertarian, :green, :constitution, :whig] do
+    party_mascot = mascot(party)
+    do_logo(party_mascot, size)
+  end
+
+  def logo(_party, size), do: do_logo("other", size)
+
+  defp do_logo(mascot, :small), do: "#{mascot}_small.png"
+  defp do_logo(mascot, _othersize), do: "#{mascot}_normal.png"
+end
+
+IO.puts(Party.logo(:republicanes, :bete))

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Grid and Text Section</title>
+    <style>
+        /* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Section Style */
+.content-section {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Left: Image Grid */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 40%; /* Prend 40% de la largeur */
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Right: Text Content */
+.text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Aligne le contenu en haut, au milieu et en bas */
+    width: 60%; /* Prend 60% de la largeur */
+    padding: 20px;
+}
+
+.text-content h1 {
+    align-self: flex-start; /* Aligne le titre en haut */
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.text-content p {
+    flex-grow: 1; /* Permet au texte de prendre l'espace restant au milieu */
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.text-content button {
+    align-self: flex-end; /* Aligne le bouton en bas */
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.text-content button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <section class="content-section">
+        <!-- Div contenant les images -->
+        <div class="image-grid">
+            <img src="https://assets.codepen.io/285131/acme-2.svg" alt="Image 1">
+            <img src="https://assets.codepen.io/285131/acme-2.svg" alt="Image 2">
+            <img src="https://assets.codepen.io/285131/acme-2.svg" alt="Image 3">
+            <img src="https://assets.codepen.io/285131/acme-2.svg" alt="Image 4">
+        </div>
+
+        <!-- Div contenant le texte -->
+        <div class="text-content">
+            <h1>Un Titre Attrayant</h1>
+            <p>Voici un texte descriptif qui accompagne les images. Cela peut inclure des informations importantes sur le contenu présenté dans la grille d'images.</p>
+            <button>Cliquez ici</button>
+        </div>
+    </section>
+</body>
+</html>
